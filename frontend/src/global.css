@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cl {
+  @apply text-base text-blue-500 hover:text-blue-600 transition duration-150 ease-in-out;
+}
+
+.pp {
+  @apply text-green-600;
+}
+
+.pn {
+  @apply text-red-600;
+}
