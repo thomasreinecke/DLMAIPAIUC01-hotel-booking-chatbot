@@ -2,6 +2,8 @@
   import { onMount, afterUpdate } from "svelte";
   import { writable } from "svelte/store";
   import ChatPost from "$lib/components/ChatPost.svelte";
+  import { sessionId } from "$lib/stores/sessionStore.js";
+  import { chatContext } from "$lib/stores/chatContext.js"; // Import context store
   
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -17,6 +19,12 @@
   let messagesContainer: HTMLDivElement;
   let isScrolledToBottom = true;
   let messageAdded = false;
+  let currentSessionId = "";
+
+  // Ensure sessionId is correctly retrieved (since it's not writable)
+  sessionId.subscribe(value => {
+    currentSessionId = value;
+  });
 
   // Fetch previous messages from the backend
   async function fetchMessages() {
@@ -33,30 +41,30 @@
   async function sendMessage() {
     if (!userInput.trim()) return;
 
-    // Force scroll to bottom when adding user message
     messageAdded = true;
     
-    // Add the user's message to the chat immediately (optimistic UI)
     messages.update(msgs => [...msgs, { text: userInput, sender: "user" }]);
     
-    // Save current input and clear the field
     const sentMessage = userInput;
     userInput = "";
 
     try {
+      console.log(`Sending message with sessionId=${currentSessionId}`);
+
       const response = await fetch(`${backendUrl}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: sentMessage })
+        body: JSON.stringify({ message: sentMessage, sessionId: currentSessionId })
       });
 
       const data = await response.json();
       
-      // Flag that a new message is being added (bot response)
       messageAdded = true;
       
-      // Add bot's response to the chat
       messages.update(msgs => [...msgs, { text: data.reply, sender: "bot" }]);
+
+      // Store updated context in chatContext
+      chatContext.set(data.context);
     } catch (error) {
       console.error("Error sending message:", error);
     }
@@ -83,9 +91,8 @@
     fetchMessages();
   });
 
-  // Run after the DOM updates - perfect for scrolling after content changes
+  // Ensure smooth scrolling when messages are added
   afterUpdate(() => {
-    // If a new message was added OR user was already at bottom, scroll to bottom
     if (messageAdded || isScrolledToBottom) {
       scrollToBottom();
       messageAdded = false;

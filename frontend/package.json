@@ -36,6 +36,7 @@
   },
   "type": "module",
   "dependencies": {
-    "lucide-svelte": "^0.477.0"
+    "lucide-svelte": "^0.477.0",
+    "uuid": "^11.1.0"
   }
 }
