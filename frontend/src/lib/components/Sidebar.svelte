@@ -1,6 +1,15 @@
-<div class="w-64 bg-gray-800 text-white p-4 flex flex-col">
-  <div class="mb-6">
-    <h2 class="text-lg font-bold">Logo + Instructions</h2>
+<script>
+  import { BedDouble } from 'lucide-svelte';  // Import the "bed-double" icon
+</script>
+
+<div class="w-64 bg-gray-800 text-white p-4 flex flex-col h-full sticky top-0">
+  <div class="flex items-center space-x-3 mb-6">
+    <BedDouble class="text-white text-3xl" />
+    <h2 class="text-lg font-bold">Roomie</h2>
+  </div>
+
+  <div class="text-sm text-gray-300 mb-6">
+    Use the chatbot to book a hotel room, change, or cancel an existing reservation.
   </div>
 
   <div class="mt-auto bg-gray-700 p-3 rounded-lg">

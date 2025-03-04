@@ -9,7 +9,18 @@ make test        # Runs backend tests
 
 <img width="1097" alt="Image" src="https://github.com/user-attachments/assets/e0354848-8e37-4560-ac27-a9763b0817a2" />
 
+## setup LMStudio
+
+instructions to be added
+
 ## run the backend
+
+```
+cd backend
+./run.sh
+```
+
+or
 
 ```
 cd backend

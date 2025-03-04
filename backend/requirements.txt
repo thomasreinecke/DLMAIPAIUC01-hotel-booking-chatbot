@@ -2,5 +2,5 @@ fastapi
 uvicorn
 pydantic
 langchain
-torch
-transformers
+python-dotenv
+openai==0.28
