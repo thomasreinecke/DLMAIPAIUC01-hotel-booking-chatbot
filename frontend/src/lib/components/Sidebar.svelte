@@ -1,10 +1,10 @@
 <script>
   import { BedDouble } from 'lucide-svelte';
-  import { chatContext } from "$lib/stores/chatContext.js"; // Import the chatbot context store
+  import { chatContext } from "$lib/stores/chatContext.js"; 
 
-  let currentIntent = "None";
+  let context = {};
   chatContext.subscribe(value => {
-    currentIntent = value.intent || "None";
+    context = value || {};
   });
 </script>
 
@@ -20,6 +20,15 @@
 
   <div class="mt-auto bg-gray-700 p-3 rounded-lg">
     <h3 class="text-sm text-gray-300">Context</h3>
-    <p class="text-md font-semibold">Intent: {currentIntent}</p>
+    <p class="text-md font-semibold">Intent: {context.intent || "None"}</p>
+    
+    {#if context.data}
+      <p class="text-sm text-gray-300">Guest Name: {context.data["guest name"] || "N/A"}</p>
+      <p class="text-sm text-gray-300">Check-in: {context.data["check-in date"] || "N/A"}</p>
+      <p class="text-sm text-gray-300">Check-out: {context.data["check-out date"] || "N/A"}</p>
+      <p class="text-sm text-gray-300">Guests: {context.data["number of guests"] || "N/A"}</p>
+      <p class="text-sm text-gray-300">Breakfast: {context.data["breakfast inclusion"] || "N/A"}</p>
+      <p class="text-sm text-gray-300">Payment: {context.data["payment method"] || "N/A"}</p>
+    {/if}
   </div>
 </div>
