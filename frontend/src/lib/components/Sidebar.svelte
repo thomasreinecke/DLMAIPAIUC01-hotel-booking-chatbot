@@ -19,46 +19,48 @@
   </div>
 
   <div class="mt-auto rounded-lg overflow-hidden">
-    <!-- Dedicated heading area for Intent with a slightly different background color -->
+    <!-- Context header: Intent and Booking Number -->
     <div class="bg-gray-700 p-2">
       <h3 class="text-sm text-gray-300 font-semibold">Intent: {context.intent || "None"}</h3>
+      <h4 class="text-xs text-gray-300">
+        Booking #: {context.data && context.data["booking number"] ? context.data["booking number"] : "-"}
+      </h4>
     </div>
-    {#if context.intent === "booking" || context.intent === "modify" || context.intent === "cancel"}
-      <!-- Invisible table with three columns -->
-      <div class="bg-gray-600 p-2">
-        <table class="w-full text-sm">
-          <tr>
-            <td class="w-6">{context.data["guest name"] !== "N/A" ? "✅" : "❌"}</td>
-            <td class="pl-2">Guest Name</td>
-            <td class="pl-2">{context.data["guest name"] !== "N/A" ? context.data["guest name"] : ""}</td>
-          </tr>
-          <tr>
-            <td class="w-6">{context.data["check-in date"] !== "N/A" ? "✅" : "❌"}</td>
-            <td class="pl-2">Check-in</td>
-            <td class="pl-2">{context.data["check-in date"] !== "N/A" ? context.data["check-in date"] : ""}</td>
-          </tr>
-          <tr>
-            <td class="w-6">{context.data["check-out date"] !== "N/A" ? "✅" : "❌"}</td>
-            <td class="pl-2">Check-out</td>
-            <td class="pl-2">{context.data["check-out date"] !== "N/A" ? context.data["check-out date"] : ""}</td>
-          </tr>
-          <tr>
-            <td class="w-6">{context.data["number of guests"] !== "N/A" ? "✅" : "❌"}</td>
-            <td class="pl-2">Guests</td>
-            <td class="pl-2">{context.data["number of guests"] !== "N/A" ? context.data["number of guests"] : ""}</td>
-          </tr>
-          <tr>
-            <td class="w-6">{context.data["breakfast inclusion"] !== "N/A" ? "✅" : "❌"}</td>
-            <td class="pl-2">Breakfast</td>
-            <td class="pl-2">{context.data["breakfast inclusion"] !== "N/A" ? context.data["breakfast inclusion"] : ""}</td>
-          </tr>
-          <tr>
-            <td class="w-6">{context.data["payment method"] !== "N/A" ? "✅" : "❌"}</td>
-            <td class="pl-2">Payment</td>
-            <td class="pl-2">{context.data["payment method"] !== "N/A" ? context.data["payment method"] : ""}</td>
-          </tr>
-        </table>
-      </div>
-    {/if}
+    
+    <!-- Context table always shown -->
+    <div class="bg-gray-600 p-2">
+      <table class="w-full text-sm">
+        <tr>
+          <td class="w-6">{context.data && context.data["guest name"] !== null ? "✅" : "❌"}</td>
+          <td class="pl-2">Guest Name</td>
+          <td class="pl-2">{context.data ? context.data["guest name"] : ""}</td>
+        </tr>
+        <tr>
+          <td class="w-6">{context.data && context.data["check-in date"] !== null ? "✅" : "❌"}</td>
+          <td class="pl-2">Check-in</td>
+          <td class="pl-2">{context.data ? context.data["check-in date"] : ""}</td>
+        </tr>
+        <tr>
+          <td class="w-6">{context.data && context.data["check-out date"] !== null ? "✅" : "❌"}</td>
+          <td class="pl-2">Check-out</td>
+          <td class="pl-2">{context.data ? context.data["check-out date"] : ""}</td>
+        </tr>
+        <tr>
+          <td class="w-6">{context.data && context.data["number of guests"] !== null ? "✅" : "❌"}</td>
+          <td class="pl-2">Guests</td>
+          <td class="pl-2">{context.data ? context.data["number of guests"] : ""}</td>
+        </tr>
+        <tr>
+          <td class="w-6">{context.data && context.data["breakfast inclusion"] !== null ? "✅" : "❌"}</td>
+          <td class="pl-2">Breakfast</td>
+          <td class="pl-2">{context.data ? context.data["breakfast inclusion"] : ""}</td>
+        </tr>
+        <tr>
+          <td class="w-6">{context.data && context.data["payment method"] !== null ? "✅" : "❌"}</td>
+          <td class="pl-2">Payment</td>
+          <td class="pl-2">{context.data ? context.data["payment method"] : ""}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

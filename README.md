@@ -27,3 +27,12 @@ cd backend
 source .venv/bin/activate
 uvicorn app.main:app --reload
 ```
+
+
+# die intent identification ist unsinn. wir sollten den chat IMMER an das LLM direkt geben um entweder eine Buchung aufzunehmen
+# oder eine bestehende aufzusuchen und weiter zu prozessieren. Das LLM sollte dabei die commands an das state management geben
+# (z.b. retrieve by booking number or cancel or confirm)
+# ich denke auch wir sollten kein auto-confirm machen, sondern den user sobald alles komplett ist explizit fragen ob er confirmen
+# möchte. ich würde dennoch den letzten intend extrahieren lassen und auch auf smalltalk eingehen, ABER das LLM immer wieder zum
+# eigentlichen ziel der reservierung zurück kehren lassen
+
