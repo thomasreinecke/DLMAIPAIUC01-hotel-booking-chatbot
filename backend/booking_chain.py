@@ -2,7 +2,7 @@ import json
 from typing import Dict, Any
 from langchain_core.prompts import PromptTemplate
 from local_llm import LMStudioLLM
-from models import BookingState  # BookingState is a Pydantic model now
+from models import BookingState  # BookingState is a Pydantic model
 from prompts import BOOKING_STATE_PROMPT
 
 def update_booking_state(conversation_history: str) -> Dict[str, Any]:
@@ -25,8 +25,8 @@ def update_booking_state(conversation_history: str) -> Dict[str, Any]:
         return state
     except Exception as e:
         print(e)
-        # In case of failure, do not drop already collected information.
-        # Only update the state with an error message and a gentle prompt to rephrase.
+        # In case of failure, preserve already collected information.
+        # Return only an error update and a gentle prompt.
         return {
             "error": str(e),
             "response": "I'm sorry, I didn't understand that. Could you please rephrase your last message?"

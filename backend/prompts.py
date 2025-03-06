@@ -1,5 +1,9 @@
 # prompts.py
 
+INIT_PROMPT = "Hello! I'm Roomie, the hotel booking assistant for Quantum Suites Hotel. I can help you with booking, modifying, or canceling a reservation. How can I assist you today?"
+
+INTENT_IDENTIFICATION_PROMPT = "Identify the user's intent as one of: booking, modify, cancel, confirm, reset, smalltalk. Respond with only the intent word."
+
 BOOKING_STATE_PROMPT = """
 You are a hotel booking assistant. Based on the conversation history provided below, update the current booking state.
 
