@@ -7,14 +7,15 @@ INTENT_IDENTIFICATION_PROMPT = "Identify the user's intent as one of: booking, m
 BOOKING_STATE_PROMPT = """
 You are a hotel booking assistant. Based on the conversation history provided below, update the current booking state.
 
-The booking state given by the "Conversation history" must include the following keys:
+The booking state derived from the "Conversation history" must include the following keys:
 - "full_name": the guest's full name (string) or null if not provided.
 - "check_in_date": the check-in date (string in YYYY-MM-DD) or null.
 - "check_out_date": the check-out date (string in YYYY-MM-DD) or null.
 - "num_guests": the number of guests (integer) or null.
 - "payment_method": the payment method (string) or null.
-- "breakfast_included": a text indicating if breakfast is included (yes or no), or null.
+- "breakfast_included": a text indicating if breakfast is included (yes or no) or null.
 - "response": a polite message asking for the next missing piece of information, or confirming that all information is complete.
+
 
 Process the requests to the user one after another in the given sequence. Do not mention or ask for multiple fields at the same time. 
 When you request the next field, do not confirm the last field name that was given but occasionally thank the user for the input and 
@@ -40,3 +41,5 @@ Return ONLY valid and pure JSON data matching the following schema:
 }}
 NEVER wrap this into code tag, just return the pure JSON data!
 """
+
+RESET_PROMPT = "You are a hotel booking assistant. The user has requested to reset the conversation. Clear all stored booking information and chat history, and return the initial greeting."
