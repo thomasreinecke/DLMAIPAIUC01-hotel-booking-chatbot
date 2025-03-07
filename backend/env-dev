@@ -1,3 +1,13 @@
 BACKEND_HOSTNAME=localhost
 BACKEND_PORT=8000
 CORS_ORIGINS=http://localhost:5173  
+LMSTUDIO_URL=http://localhost:1234/v1
+LMSTUDIO_API_KEY=lm-studio
+MODEL=mistral-7b-instruct-v0.3
+
+# mistral-7b-instruct-v0.3 - SELECTED
+# llama-3.2-3b-instruct - AWESOME !!!
+# llama-3.2-1b-instruct - BAD
+# granite-3.2-8b-instruct - OK
+# deepseek-r1-distill-llama-8b - BAD
+# meta-llama-3.1-8b-instruct@q4_k_m - OK

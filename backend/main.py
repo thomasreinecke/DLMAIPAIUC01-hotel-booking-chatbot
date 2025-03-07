@@ -17,6 +17,7 @@ app = FastAPI(title="Roomie Chatbot API")
 backend_hostname = os.getenv("BACKEND_HOSTNAME", "localhost")
 backend_port = os.getenv("BACKEND_PORT", "8000")
 cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:5173").split(',')
+model = os.getenv("MODEL", "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF")
 
 logging.basicConfig(level=logging.INFO)
 
@@ -34,7 +35,7 @@ def check_llm_availability():
             logging.info(f"🔄 Checking LLM availability... (Attempt {attempt + 1}/{max_retries})")
             response = llm.predict("Hello")  # simple test prompt
             if response:
-                logging.info("✅ LLM is available and ready to process requests.")
+                logging.info(f"✅ LLM '{model}' is available and ready to process requests.")
                 return True
         except Exception as e:
             logging.error(f"❌ Error connecting to LLM: {e}")

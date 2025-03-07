@@ -12,13 +12,13 @@ class LMStudioLLM(LLM):
 
     def _call(self, prompt: str, stop=None) -> str:
         LMSTUDIO_URL = os.getenv("LMSTUDIO_URL", "http://127.0.0.1:1234/v1")
-        MODEL = os.getenv("MODEL", "lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF")
+        MODEL = os.getenv("MODEL", "meta-llama-3.1-8b-instruct@q4_k_m")
         api_key = os.getenv("LMSTUDIO_API_KEY", "lm-studio")
 
         payload = {
             "model": MODEL,
             "messages": [
-                {"role": "system", "content": prompt}
+                {"role": "user", "content": prompt}
             ],
             "temperature": 0.7,
         }
