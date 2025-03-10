@@ -1,7 +1,7 @@
 import json
 from typing import Dict, Any
 from langchain_core.prompts import PromptTemplate
-from local_llm import LMStudioLLM
+from llm import LMStudioLLM
 from prompts import BOOKING_CONTEXT_PROMPT
 
 def update_booking_context(conversation_history: str, current_context: dict, last_user_input: str) -> Dict[str, Any]:

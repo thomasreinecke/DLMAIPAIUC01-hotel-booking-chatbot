@@ -15,9 +15,10 @@ Important instructions for specific fields:
 - **full_name**:
   - Must include both a first name and a last name.
   - If this field is missing or invalid, you must not allow the booking to be confirmed.
+  - Do not guess the name, be sure you captured the name from the user
 - **check_in_date** and **check_out_date**:
   - If a date is provided in any format or as a relative expression, convert and store the date in the format "YYYY-MM-DD".
-  - If one of the dates can be calculated from the respective other dates, do so
+  - If one of the dates can be calculated from the respective other dates, try hard to do so (for instance the checkin was given + "we stay for X days")
   - If you cannot parse the date, ask the user to re-enter it in the correct format. Do not accept time entries as valid dates.
 - **num_guests**:
   - If the requested number is smaller than 1, kindly request a correct guest number.

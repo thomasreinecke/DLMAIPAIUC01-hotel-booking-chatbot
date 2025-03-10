@@ -7,8 +7,8 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-from local_llm import LMStudioLLM
-from booking_chain import update_booking_context
+from llm import LMStudioLLM
+from chain import update_booking_context
 from prompts import INIT_PROMPT
 from database import init_db, upsert_booking
 

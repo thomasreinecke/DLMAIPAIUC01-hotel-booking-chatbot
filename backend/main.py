@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 # Import your local modules directly
 import chat
-from local_llm import LMStudioLLM
+from llm import LMStudioLLM
 
 load_dotenv()
 
