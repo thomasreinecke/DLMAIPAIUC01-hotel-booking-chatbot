@@ -19,6 +19,10 @@
     <h2 class="text-lg font-bold">Roomie</h2>
   </div>
 
+  <div class="text-sm text-gray-300 mb-6 font-semibold">
+    The hotel booking assistant for Quantum Suites Hotel
+  </div>
+
   <div class="text-sm text-gray-300 mb-6">
     Use the chatbot to book a hotel room, change, or cancel an existing reservation.
   </div>
