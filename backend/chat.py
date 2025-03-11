@@ -16,9 +16,6 @@ load_dotenv()
 router = APIRouter()
 logging.basicConfig(level=logging.INFO)
 
-with open("system-prompts.json", "r") as f:
-    PROMPTS = json.load(f)
-
 # In-memory stores for booking context and chat history.
 booking_contexts = {}  # Maps sessionId -> booking context (a dict)
 chat_history = {}      # Maps sessionId -> list of messages (each dict with "text" and "sender")
