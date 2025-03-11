@@ -5,7 +5,8 @@ LMSTUDIO_URL=http://localhost:1234/v1
 LMSTUDIO_API_KEY=lm-studio
 MODEL=mistral-7b-instruct-v0.3
 
-# mistral-7b-instruct-v0.3 - SELECTED
+# mistral-7b-instruct-v0.3 - BEST, SELECTED
+# mistral-nemo-instruct-2407 - NAJA
 # llama-3.2-3b-instruct - AWESOME !!!
 # llama-3.2-1b-instruct - BAD
 # granite-3.2-8b-instruct - OK
