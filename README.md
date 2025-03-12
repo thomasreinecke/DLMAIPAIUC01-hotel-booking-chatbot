@@ -2,6 +2,8 @@
 
 Hotel Booking chatbot implementation for IU course DLMAIPAIUC01: AI Project use Case
 
+![Image](https://github.com/user-attachments/assets/24775eac-c9bb-4522-96a7-50902aeefc59)
+
 **Roomie**, the hotel room booking chatbot of the fictional **Quantum Suites Hotel** supports the following use cases:
 
 - **Booking** – Users can book their hotel stays. The chatbot collects the Guest name, Check-in date, Check-out date, Number of guests, Breakfast inclusion, and the Payment method. Bookings result in the issuance of a confirmation number, which is required for future modifications or cancellations.
