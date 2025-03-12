@@ -1,19 +1,30 @@
 # DLMAIPAIUC01-hotel-booking-chatbot
 
-```
-make install     # Installs both frontend and backend dependencies
-make run         # Runs frontend and backend together
-make clean       # Cleans up virtual environment and node_modules
-make test        # Runs backend tests
-```
+Hotel Booking chatbot implementation for IU course DLMAIPAIUC01: AI Project use Case
 
-<img width="1097" alt="Image" src="https://github.com/user-attachments/assets/e0354848-8e37-4560-ac27-a9763b0817a2" />
+**Roomie**, the hotel room booking chatbot of the fictional **Quantum Suites Hotel** supports the following use cases:
+
+- **Booking** – Users can book their hotel stays. The chatbot collects the Guest name, Check-in date, Check-out date, Number of guests, Breakfast inclusion, and the Payment method. Bookings result in the issuance of a confirmation number, which is required for future modifications or cancellations.
+- **Modification** – Users can modify an existing booking by providing their confirmation number and specifying the details to be updated. The system retrieves the reservation, applies the changes, and returns an updated confirmation.
+- **Cancellation** – Users can cancel their reservation by providing their confirmation number. The chatbot confirms the action and removes the booking from the system.
+- **Confirmation** – Users can request details of their booking using their confirmation number.
+- **Small Talk** – Users may engage in casual conversations, such as greetings or farewells.
+
+## System Architecture
+
+<img width="1611" alt="Image" src="https://github.com/user-attachments/assets/1fbe061b-6875-4a59-97c4-68c184f27307" />
+
+## List of dependencies
+
+tbd
 
 ## setup LMStudio
 
 instructions to be added
 
-## run the backend
+## install dependencies
+
+## run the chatbot
 
 ```
 cd backend
@@ -27,12 +38,4 @@ cd backend
 source .venv/bin/activate
 uvicorn app.main:app --reload
 ```
-
-
-# die intent identification ist unsinn. wir sollten den chat IMMER an das LLM direkt geben um entweder eine Buchung aufzunehmen
-# oder eine bestehende aufzusuchen und weiter zu prozessieren. Das LLM sollte dabei die commands an das state management geben
-# (z.b. retrieve by booking number or cancel or confirm)
-# ich denke auch wir sollten kein auto-confirm machen, sondern den user sobald alles komplett ist explizit fragen ob er confirmen
-# möchte. ich würde dennoch den letzten intend extrahieren lassen und auch auf smalltalk eingehen, ABER das LLM immer wieder zum
-# eigentlichen ziel der reservierung zurück kehren lassen
 

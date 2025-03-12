@@ -12,7 +12,7 @@ class LMStudioLLM(LLM):
 
     def _call(self, prompt: str, stop=None) -> str:
         LMSTUDIO_URL = os.getenv("LMSTUDIO_URL", "http://127.0.0.1:1234/v1")
-        MODEL = os.getenv("MODEL", "meta-llama-3.1-8b-instruct@q4_k_m")
+        MODEL = os.getenv("MODEL", "mistral-7b-instruct-v0.3")
         api_key = os.getenv("LMSTUDIO_API_KEY", "lm-studio")
 
         payload = {
