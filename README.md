@@ -14,7 +14,8 @@ Hotel Booking chatbot implementation for IU course DLMAIPAIUC01: AI Project use 
 
 ## System Architecture
 
-<img width="1611" alt="Image" src="https://github.com/user-attachments/assets/1fbe061b-6875-4a59-97c4-68c184f27307" />
+<img width="1619" alt="Image" src="https://github.com/user-attachments/assets/edf9f105-287a-4ad1-80e5-0c2e169a3613" />
+
 
 ## List of dependencies
 
