@@ -71,22 +71,22 @@ def upsert_booking(context: Dict) -> None:
     conn.commit()
     conn.close()
 
-def get_booking(booking_number: str) -> Optional[Dict]:
+def get_booking_by_number_and_name(booking_number: str, full_name: str) -> Optional[Dict]:
     """
-    Retrieves a booking from the database by booking_number.
-    Returns a dictionary with the booking details, or None if not found.
+    Retrieves a booking by booking_number and full_name (case-insensitive).
     """
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM bookings WHERE booking_number = ?", (booking_number,))
+    cursor.execute("""
+        SELECT * FROM bookings 
+        WHERE LOWER(booking_number) = LOWER(?) AND LOWER(full_name) = LOWER(?)
+    """, (booking_number, full_name))
     row = cursor.fetchone()
     conn.close()
 
     if row is None:
         return None
 
-    # Map the row to a dict matching the context structure
-    # row columns: booking_number, full_name, check_in_date, check_out_date, num_guests, payment_method, breakfast_included, status, language
     return {
         "booking_number": row[0],
         "full_name": row[1],
@@ -98,6 +98,7 @@ def get_booking(booking_number: str) -> Optional[Dict]:
         "status": row[7],
         "language": row[8]
     }
+
 
 def remove_booking(booking_number: str) -> None:
     """
