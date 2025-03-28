@@ -89,17 +89,17 @@ The frontend will usually start at http://localhost:5173 (port could vary)
 
 ## Chatbot status flow
 
-* draft - if any of the required fields `full_name, check_in_date, check_out_date, num_guests, breakfast_included, payment_method` was not provided
-* pending - if all of the required fields are populated, indicates ready for confirmation
-* confirmed - if the user has confirmed the booking
+* **draft** - if any of the required fields `full_name, check_in_date, check_out_date, num_guests, breakfast_included, payment_method` was not provided
+* **pending** - if all of the required fields are populated, indicates ready for confirmation
+* **confirmed** - if the user has confirmed the booking
 
 ## Supported user intends
 
-* "book" - create a new booking. user is asked to fill all the fields necessary and confirm to save the booking
-* "modify" - based on full name and the booking number a previously created booking is retrieved and can be modified
-* "cancel" - based on full name and the booking number a previously created booking is retrieved and can be cancelled (and deleted)
-* "reset" - a user can indicate to start the session over 
-* "smalltalk" - engage with the chatbot in casual communication, the chatbot will try to lead back to the booking
+* **book** - create a new booking. user is asked to fill all the fields necessary and confirm to save the booking
+* **modify** - based on full name and the booking number a previously created booking is retrieved and can be modified
+* **cancel** - based on full name and the booking number a previously created booking is retrieved and can be cancelled (and deleted)
+* **reset** - a user can indicate to start the session over 
+* **smalltalk** - engage with the chatbot in casual communication, the chatbot will try to lead back to the booking
 
 ## Unit testing
 
