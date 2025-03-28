@@ -19,17 +19,16 @@ Hotel Booking chatbot implementation for IU course DLMAIPAIUC01: AI Project use 
 ## List of dependencies
 
 ### Frontend dependencies
-```
+
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference), used as programming language to create dynamic web applications on the browser
 - [NodeJS](https://nodejs.org/) as Javascript/Typescript runtime to provide the frontend application to the browser
 - [Svelte](https://svelte.dev/) as Frontend Javascript framework, that compiles web components into highly optimized vanilla javascript
 - [SvelteKit](https://svelte.dev/docs/kit/introduction) as Full-Stack development framework, providing Server-Side rendering (SSR), static site generation (SSG) and API routing using Svelte
 - [Skeleton.dev](https://www.skeleton.dev/) as UI component library for Svelte and Sveltekit using Tailwind CSS, providing pre-defined, accessible and customizable web components for rapid web development   
 - [TailwindCSS](https://tailwindcss.com/) as utility-first CSS framework that provides low-level utility classes to build custom designs quickly without writing custom CSS
-```
 
 ### Backend dependencies
-```
+
 - [Python](https://www.python.org/), used as backend programming language to enable API development, database management and business logic handling 
 - [Uvicorn](https://www.uvicorn.org/) as Asynchronous Server Gateway Interface (ASGI) to efficiently run asynchronous API services
 - [FastAPI](https://fastapi.tiangolo.com/) as high performance Python web framework for building APIs
@@ -37,7 +36,6 @@ Hotel Booking chatbot implementation for IU course DLMAIPAIUC01: AI Project use 
 - [LMStudio](https://lmstudio.ai/), used as local LLM server to run AI models efficiently on local hardware
 - [SQLite](https://www.sqlite.org/), used as a lightweight, file-based database, ideal for local applications and embedded systems with simple data storage needs
 - [Mistral-7B-Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3), as open-source LLMs, providing NLP, intent identification, user input extraction and casual conversation capabilities
-```
 
 ## setup LMStudio
 
@@ -77,7 +75,7 @@ uvicorn app.main:app --reload
 ```
 
 ### start the frontend
-````
+```
 cd frontend
 ./run.sh
 ```
