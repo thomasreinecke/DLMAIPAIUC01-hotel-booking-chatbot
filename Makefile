@@ -39,7 +39,7 @@ frontend:
 clean:
 	@echo "Cleaning backend..."
 	@rm -rf $(VENV)
-	@rm -rf __pycache__
+	@find backend -type d -name '__pycache__' -exec rm -rf {} +
 	@echo "Cleaning frontend..."
 	@rm -rf $(FRONTEND_DIR)/node_modules
 	@echo "Cleanup complete."
